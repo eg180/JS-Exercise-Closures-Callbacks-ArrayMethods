@@ -80,11 +80,25 @@ finalScore(inning, 9) might return:
 
 */ 
 
+
 function finalScore(callback, numberOfInnings){
 
-  return callback(numberOfInnings)
+  const gameResult = {
+    "Home": 0,
+    "Away": 0
+
+  }
+
+  for(let i=0; i<numberOfInnings; i++) {
+    gameResult.Home += callback();
+    gameResult.Away += callback();
+
+  } return gameResult;
 
 }
+
+
+finalScore(inning, 9);
 
 /* Task 4: 
 
