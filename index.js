@@ -130,10 +130,12 @@ function getInningScore() {
   
 
 function scoreboard(callback_getInningScore, callback_inning, numberOfInnings ) {
+  inning_summaries = [];
   for(let i=0; i<numberOfInnings; i++) {
-    
-
-  } // end of loop
+    inning_summary = `Inning ${i+1}: ${callback_getInningScore(callback_inning())}`;
+    inning_summaries.push(inning_summary);
+  } return inning_summaries;
 }
 
 
+scoreboard(getInningScore, inning, 9);
