@@ -81,7 +81,7 @@ finalScore(inning, 9) might return:
 */ 
 
 
-function finalScore(callback, numberOfInnings){
+function finalScore(callback_inning, numberOfInnings){
 
   const gameResult = {
     "Home": 0,
@@ -90,8 +90,9 @@ function finalScore(callback, numberOfInnings){
   }
 
   for(let i=0; i<numberOfInnings; i++) {
-    gameResult.Home += callback();
-    gameResult.Away += callback();
+    
+    gameResult.Away += callback_inning();
+    gameResult.Home += callback_inning();
 
   } return gameResult;
 
@@ -122,8 +123,17 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function getInningScore() {
+  return `Away Team: ${inning()} - Home Team: ${inning()}`
+}
+
+  
+
+function scoreboard(callback_getInningScore, callback_inning, numberOfInnings ) {
+  for(let i=0; i<numberOfInnings; i++) {
+    
+
+  } // end of loop
 }
 
 
