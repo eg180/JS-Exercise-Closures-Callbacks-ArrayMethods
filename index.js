@@ -26,9 +26,12 @@ function processFirstItem(stringList, callback) {
 /* Task 1: `counterMaker`
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
- * 1. What is the difference between counter1 and counter2?
+ * 1. What is the difference between counter1 and counter2? 
+ * Counter 1 has two scopes - the parent level scope of counterMaker and the inner/nested function of counter().
+ * By contrast, counter 2 references 'count' on the global scale as it is declared outside of local scope into the global scope.
  * 
- * 2. Which of the two uses a closure? How can you tell?
+ * 
+ * 2. Which of the two uses a closure? How can you tell? Counter 1 uses closure. I can tell by the fact that there is a function nested within another function.
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *
@@ -56,9 +59,10 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
 
-    /*Code Here*/
+  const points = Math.floor(Math.random() * 3)
+  return points;
 
 }
 
@@ -76,11 +80,26 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
 
-  /*Code Here*/
+function finalScore(callback_inning, numberOfInnings){
+
+  const gameResult = {
+    "Home": 0,
+    "Away": 0
+
+  }
+
+  for(let i=0; i<numberOfInnings; i++) {
+    
+    gameResult.Away += callback_inning();
+    gameResult.Home += callback_inning();
+
+  } return gameResult;
 
 }
+
+
+finalScore(inning, 9);
 
 /* Task 4: 
 
@@ -104,8 +123,19 @@ and returns the score at each pont in the game, like so:
 
 Final Score: awayTeam - homeTeam */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function getInningScore() {
+  return `Away Team: ${inning()} - Home Team: ${inning()}`
+}
+
+  
+
+function scoreboard(callback_getInningScore, callback_inning, numberOfInnings ) {
+  inning_summaries = [];
+  for(let i=0; i<numberOfInnings; i++) {
+    inning_summary = `Inning ${i+1}: ${callback_getInningScore(callback_inning())}`;
+    inning_summaries.push(inning_summary);
+  } return inning_summaries;
 }
 
 
+scoreboard(getInningScore, inning, 9);

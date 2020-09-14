@@ -41,7 +41,9 @@ Find the file `index.js` and complete the tasks until your tests are passing.
 
 Edit the `ReadMe` file with your answers.
 
-1. In your own words, define closure (1-2 sentences).
+1. In your own words, define closure (1-2 sentences). 
+Closure is a way to keep your variables in a protected environment (scope) with its own ecosystem of variables. Within a function, variables are given priority to those declared within that ecosystem and looks outward if not found.
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -62,9 +64,19 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell?
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+a. Where is closure used in this code? Closure is used in the funtion named personalDice() and the anonymous function within it. 
+
+How can you tell? I can tell by the closing curly braces for each one.
+
+
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? The instance of the function we're referencing is always the same.
+
+What could change?
+The number stored in newRoll could change.
+
+c. What is the lexical scope of `newRoll`? newRoll exists within the personalDice function/namespace.
+
+
 
 ### Task 3 - Stretch Goals
 
