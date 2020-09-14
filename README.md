@@ -64,11 +64,19 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell? Closure is used in the funtion named personalDice() and the anonymous function within it. I can tell by the closing curly braces for each one.
+a. Where is closure used in this code? Closure is used in the funtion named personalDice() and the anonymous function within it. 
+
+How can you tell? I can tell by the closing curly braces for each one.
 
 
-b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
-c. What is the lexical scope of `newRoll`? 
+b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? The instance of the function we're referencing is always the same.
+
+What could change?
+The number stored in newRoll could change.
+
+c. What is the lexical scope of `newRoll`? newRoll exists within the personalDice function/namespace.
+
+
 
 ### Task 3 - Stretch Goals
 
